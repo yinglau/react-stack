@@ -4,11 +4,11 @@
  * email: {{ author.email }}
  */
 
-import {createSelector} from 'reselect';
+import { createSelector } from 'reselect'
 
-const select{{ properCase name }} = (state) => state.get('{{ camelCase name }}');
+const select{{ properCase name }} = (state) => state.get('{{ camelCase name }}')
 
 export const getDefaultState = () => createSelector(
   select{{ properCase name }},
   state => state.get('defaultState')
-);
+)

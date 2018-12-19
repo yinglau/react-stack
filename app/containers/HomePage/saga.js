@@ -5,9 +5,8 @@ import {
 
 function * defaultFlow (action) {
   try {
-    yield () => {
-      console.log('run saga action.type', action.type)
-    }
+    yield () => {}
+    console.log('run saga action.type', action.type)
   } catch (e) {
     console.log('run saga error')
   }

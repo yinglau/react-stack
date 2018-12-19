@@ -4,11 +4,11 @@
  *
  */
 
-import React from 'react';
-import loadable from 'loadable-components';
+import React from 'react'
+import loadable from 'loadable-components'
 
-const AsyncComponent = () => (<div>loading...</div>);
+const AsyncComponent = () => (<div>loading...</div>)
 
 export default loadable(() => import('./index'), {
-  LoadingComponent: AsyncComponent,
-});
+  LoadingComponent: AsyncComponent
+})

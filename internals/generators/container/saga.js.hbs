@@ -4,19 +4,21 @@
  * email: {{ author.email }}
  */
 
-import { call, put, select, takeLatest, takeEvery } from 'redux-saga/effects';
+// import { call, put, select, takeLatest, takeEvery } from 'redux-saga/effects'
+import { takeEvery } from 'redux-saga/effects'
 import {
-  DEFAULT,
-} from './constants';
+  DEFAULT
+} from './constants'
 
-function *defaultSaga(action) {
+function * defaultSaga (action) {
   try {
-    console.log('run saga action.type', action.type);
+    yield () => {}
+    console.log('run saga action.type', action.type)
   } catch (e) {
-    console.log('run saga error');
+    console.log('run saga error')
   }
 }
 
-export default function *saga() {
-  yield takeEvery(DEFAULT, defaultSaga);
+export default function * saga () {
+  yield takeEvery(DEFAULT, defaultSaga)
 }

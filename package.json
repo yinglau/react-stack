@@ -9,7 +9,7 @@
     "start": "cross-env NODE_ENV=development node ./server/index.js",
     "lint": "npm run lint:js",
     "lint:js": "eslint -- .",
-    "lint:js:fix": "eslint --fix -- ."
+    "lint:fix": "eslint --fix -- ."
   },
   "husky": {
     "hooks": {
@@ -19,7 +19,7 @@
   },
   "lint-staged": {
     "*.js": [
-      "npm run lint:js:fix",
+      "npm run lint:fix",
       "git add --force"
     ]
   },
