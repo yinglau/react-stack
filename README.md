@@ -15,5 +15,3 @@
     - [immutable facebook出品不可变数据处理](http://facebook.github.io/immutable-js/)
 - [webpack 项目打包方案工具](https://webpack.js.org/)
 - [babel es6开发](https://babel.docschina.org/docs/en/)
-
-参考的[boilerplate](https://github.com/react-boilerplate/react-boilerplate)
