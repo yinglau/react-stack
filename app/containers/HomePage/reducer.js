@@ -1,19 +1,19 @@
-import {fromJS} from 'immutable';
+import { fromJS } from 'immutable'
 import {
   DEFAULT
-} from './actions';
+} from './actions'
 
 const initialState = fromJS({
   defaultState: 'default state'
-});
+})
 
-function homeReducer(state = initialState, action) {
+function homeReducer (state = initialState, action) {
   switch (action.type) {
     case DEFAULT:
-      return state.set('defaultState', action.val);
+      return state.set('defaultState', action.val)
     default:
-      return state;
+      return state
   }
 }
 
-export default homeReducer;
+export default homeReducer

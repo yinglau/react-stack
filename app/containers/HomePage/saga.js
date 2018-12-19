@@ -1,16 +1,18 @@
-import { call, put, select, takeLatest, takeEvery } from 'redux-saga/effects';
+import { takeEvery } from 'redux-saga/effects'
 import {
-  DEFAULT,
-} from './actions';
+  DEFAULT
+} from './actions'
 
-function *defaultFlow(action) {
+function * defaultFlow (action) {
   try {
-    console.log('run saga action.type', action.type);
+    yield () => {
+      console.log('run saga action.type', action.type)
+    }
   } catch (e) {
-    console.log('run saga error');
+    console.log('run saga error')
   }
 }
 
-export default function *saga() {
-  yield takeEvery(DEFAULT, defaultFlow);
+export default function * saga () {
+  yield takeEvery(DEFAULT, defaultFlow)
 }

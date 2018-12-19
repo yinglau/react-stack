@@ -1,8 +1,8 @@
-export const DEFAULT = 'HomePage/DEFAULT';
+export const DEFAULT = 'HomePage/DEFAULT'
 
-export function defaultAction(val) {
+export function defaultAction (val) {
   return {
     type: DEFAULT,
-    val,
-  };
+    val
+  }
 }

@@ -1,10 +1,9 @@
-import React from 'react';
-import {Route, Switch, Link} from 'react-router-dom';
+import React from 'react'
+import { Switch, Link, Route } from 'react-router-dom'
+import HomePage from '../HomePage'
+import PersonalPage from '../PersonalPage'
 
-import HomePage from '../HomePage';
-import PersonalPage from '../PersonalPage';
-
-export default function App() {
+export default function App () {
   return (
     <div>
       <div>this is header</div>

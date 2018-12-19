@@ -1,20 +1,20 @@
 // Needed for redux-saga es6 generator support
-import '@babel/polyfill';
+import '@babel/polyfill'
 
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { ConnectedRouter } from 'connected-react-router/immutable';
-import PropTypes from 'prop-types';
-import history from 'utils/history';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
+import { ConnectedRouter } from 'connected-react-router/immutable'
+import PropTypes from 'prop-types'
+import history from 'utils/history'
 
-import App from 'containers/App';
-import configureStore from './configureStore';
+import App from 'containers/App'
+import configureStore from './configureStore'
 
-const MOUNT_NODE = document.getElementById('root');
+const MOUNT_NODE = document.getElementById('root')
 
-const initialState = {};
-const store = configureStore(initialState, history);
+const initialState = {}
+const store = configureStore(initialState, history)
 
 const render = () => {
   ReactDOM.render(
@@ -25,10 +25,10 @@ const render = () => {
     </Provider>
     ,
     MOUNT_NODE
-  );
+  )
 }
 
-render();
+render()
 
 if (module.hot) {
   // Hot reloadable React components and translation json files
@@ -36,7 +36,7 @@ if (module.hot) {
   // have to be constants at compile-time
   // module.hot.accept(() => {});
   module.hot.accept(() => {
-    ReactDOM.unmountComponentAtNode(MOUNT_NODE);
-    render();
-  });
+    ReactDOM.unmountComponentAtNode(MOUNT_NODE)
+    render()
+  })
 }
