@@ -1,8 +1,8 @@
-export const HOME_CHANGE_TITLE = 'HomePage/HOME_CHANGE_TITLE';
+export const DEFAULT = 'HomePage/DEFAULT';
 
-export function changeTitle(title) {
+export function defaultAction(val) {
   return {
-    type: HOME_CHANGE_TITLE,
-    title,
+    type: DEFAULT,
+    val,
   };
 }

@@ -1,8 +1,5 @@
 const path = require('path');
 
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-
 module.exports = (opts) => ({
   // see https://webpack.docschina.org/concepts/mode/ for the description
   mode: opts.mode,

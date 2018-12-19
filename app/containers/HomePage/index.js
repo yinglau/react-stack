@@ -1,32 +1,32 @@
 import React, {Component} from 'react';
-import {toJS} from 'immutable';
 import {connect} from 'react-redux';
 import {compose} from 'redux';
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
+import {createStructuredSelector} from 'reselect';
 import PropTypes from 'prop-types';
 
-import {changeTitle} from './actions';
+import {defaultAction} from './actions';
 import saga from './saga';
 import reducer from './reducer';
+import {getDefaultState} from './selectors';
 
 class HomePage extends Component {
 
   componentDidMount() {
-    this.props.fetchPost();
+
   }
 
-  componentWillReceiveProps(nextProps) {
-    console.log('chg props', nextProps.home.get('title'));
+  clickAction = () => {
+    this.props.defaultAction(Math.random());
   }
 
   render() {
-    console.log('render', this.props.home);
-
 
     return (
       <div>
-        this is a home title: {this.props.home && this.props.home.get('title')}
+        <p>this is home default state: <b>{this.props.homeDefaultState}</b></p>
+        <div onClick={this.clickAction}>press me!</div>
       </div>
     )
   }
@@ -34,24 +34,24 @@ class HomePage extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onChgTitle: (title) => {
-      return dispatch(changeTitle(title))
+    dispatch,
+    defaultAction: (val) => {
+      return dispatch(defaultAction(val))
     },
-    fetchPost: () => {
-      return dispatch({type: 'HOME_FETCH'});
-    }
   };
 }
 
-const mapStateToProps = (state) => {
-  console.log('maptoprops', state.getIn(['home', 'title']))
-  return {
-    home: state.get('home')
-  };
-}
+const mapStateToProps = createStructuredSelector({
+  homeDefaultState: getDefaultState()
+});
 
-const withSaga = injectSaga({key: 'home', saga});
-const withReducer = injectReducer({key: 'home', reducer})
+const withSaga = injectSaga({key: 'homePage', saga});
+const withReducer = injectReducer({key: 'homePage', reducer})
 const withConnect = connect(mapStateToProps, mapDispatchToProps);
 
-export default compose(withReducer, withSaga, withConnect)(HomePage)
+// containers propsTypes
+HomePage.propTypes = {
+  dispatch: PropTypes.func.isRequired
+}
+
+export default compose(withReducer, withSaga, withConnect)(HomePage);

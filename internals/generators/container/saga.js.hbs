@@ -1,9 +1,15 @@
+/**
+ * {{ properCase name }} saga
+ * author: {{ author.name }}
+ * email: {{ author.email }}
+ */
+
 import { call, put, select, takeLatest, takeEvery } from 'redux-saga/effects';
 import {
   DEFAULT,
-} from './actions';
+} from './constants';
 
-function *defaultFlow(action) {
+function *defaultSaga(action) {
   try {
     console.log('run saga action.type', action.type);
   } catch (e) {
@@ -12,5 +18,5 @@ function *defaultFlow(action) {
 }
 
 export default function *saga() {
-  yield takeEvery(DEFAULT, defaultFlow);
+  yield takeEvery(DEFAULT, defaultSaga);
 }
