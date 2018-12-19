@@ -7,7 +7,21 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "gen": "plop --plopfile internals/generators/index.js",
     "start": "cross-env NODE_ENV=development node ./server/index.js",
-    "lint:js": "eslint --ignore-path .gitignore --ignore-pattern internals/scripts -- app/containers/HomePage"
+    "lint": "npm run lint:js",
+    "lint:js": "eslint -- .",
+    "lint:js:fix": "eslint --fix -- ."
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "npm test"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "npm run lint:js:fix",
+      "git add --force"
+    ]
   },
   "author": "winson",
   "license": "ISC",
@@ -59,6 +73,7 @@
     "get-port": "^4.0.0",
     "html-webpack-plugin": "^3.2.0",
     "husky": "^1.3.0",
+    "lint-staged": "^8.1.0",
     "plop": "^2.2.0",
     "style-loader": "^0.23.1",
     "webpack": "^4.27.1",

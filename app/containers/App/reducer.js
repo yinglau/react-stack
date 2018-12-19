@@ -15,8 +15,4 @@ function globalReducer (state = initialState, action) {
   }
 }
 
-function a (b: number, c: string) {
-  return b + c
-}
-
 export default globalReducer

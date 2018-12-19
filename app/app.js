@@ -5,7 +5,6 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { ConnectedRouter } from 'connected-react-router/immutable'
-import PropTypes from 'prop-types'
 import history from 'utils/history'
 
 import App from 'containers/App'
