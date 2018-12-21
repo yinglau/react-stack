@@ -12,6 +12,7 @@ import reducer from './reducer'
 import { getDefaultState } from './selectors'
 
 import Header from 'components/Header'
+import styles from './style.css'
 
 type Props = {
   defaultAction: () => {},
@@ -29,7 +30,7 @@ class HomePage extends Component<Props> {
 
   render () {
     return (
-      <div>
+      <div className={styles.wrapper}>
         <Header />
         <p>this is home default state: <b>{this.props.homeDefaultState}</b></p>
         <div onClick={this.clickAction}>press me!</div>
