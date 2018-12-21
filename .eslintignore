@@ -3,3 +3,6 @@ build/
 internals/
 server/
 babel.config.js
+**/*.test.js
+/*.js
+coverage/
