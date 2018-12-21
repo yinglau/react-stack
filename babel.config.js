@@ -6,8 +6,8 @@ module.exports = {
         modules: false,
       },
     ],
-    '@babel/preset-react',
     '@babel/preset-flow',
+    '@babel/preset-react',
   ],
   plugins: [
     '@babel/plugin-proposal-class-properties',
@@ -19,6 +19,12 @@ module.exports = {
       plugins: [
         'lodash',
         'transform-react-remove-prop-types'
+      ]
+    },
+    test: {
+      plugins: [
+        '@babel/plugin-transform-modules-commonjs',
+        'dynamic-import-node'
       ]
     }
   }
