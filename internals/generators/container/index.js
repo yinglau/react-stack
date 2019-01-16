@@ -39,7 +39,7 @@ module.exports = {
       // const nameIndexToClass = (val) => val == 'index' ? 'class' : val;
       let actions = generateFiles.map(item => ({
         type: 'add',
-        path: `${path.join(__dirname, '../../../app/containers/{{properCase name}}/' + item + '.js')}`,
+        path: `${path.join(__dirname, '../../../src/containers/{{properCase name}}/' + item + '.js')}`,
         templateFile: `./container/${item == 'index' ? 'class' : item}.js.hbs`,
         data: {
           author: {
@@ -53,7 +53,7 @@ module.exports = {
       if (data.wantLoadable) {
         actions.push({
           type: 'add',
-          path: `${path.join(__dirname, '../../../app/containers/{{properCase name}}/Loadable.js')}`,
+          path: `${path.join(__dirname, '../../../src/containers/{{properCase name}}/Loadable.js')}`,
           templateFile: `./container/loadable.js.hbs`,
         });
       }

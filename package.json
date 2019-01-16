@@ -9,7 +9,7 @@
     "lint": "npm run lint:js",
     "lint:js": "eslint -- .",
     "lint:fix": "eslint --fix -- .",
-    "gen": "plop --plopfile internals/generators/index.js"
+    "g": "plop --plopfile internals/generators/index.js"
   },
   "husky": {
     "hooks": {

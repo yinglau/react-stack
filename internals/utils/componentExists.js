@@ -6,8 +6,8 @@ const fs = require('fs');
 const path = require('path');
 const {properCase} = require('./helpers');
 
-const pageContainers = fs.readdirSync(path.join(__dirname, '../../app/containers'));
-const pageComponents = fs.readdirSync(path.join(__dirname, '../../app/components'));
+const pageContainers = fs.readdirSync(path.join(__dirname, '../../src/containers'));
+const pageComponents = fs.readdirSync(path.join(__dirname, '../../src/components'));
 
 const components = pageContainers.concat(pageComponents);
 
