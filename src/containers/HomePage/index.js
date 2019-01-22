@@ -11,9 +11,6 @@ import saga from './saga'
 import reducer from './reducer'
 import { getDefaultState } from './selectors'
 
-import Header from 'components/Header'
-import styles from './style.css'
-
 class HomePage extends Component {
   componentDidMount () {
 
@@ -25,8 +22,7 @@ class HomePage extends Component {
 
   render () {
     return (
-      <div className={styles.wrapper}>
-        <Header />
+      <div>
         <p>this is home default state: <b>{this.props.homeDefaultState}</b></p>
         <div onClick={this.clickAction}>press me!</div>
       </div>
@@ -55,7 +51,7 @@ const withConnect = connect(mapStateToProps, mapDispatchToProps)
 HomePage.propTypes = {
   dispatch: PropTypes.func.isRequired,
   defaultAction: PropTypes.func,
-  homeDefaultState: PropTypes.isRequired
+  homeDefaultState: PropTypes.string.isRequired
 }
 
 export default compose(withReducer, withSaga, withConnect)(HomePage)
