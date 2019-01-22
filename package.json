@@ -27,6 +27,7 @@
   "license": "ISC",
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
+    "axios": "^0.18.0",
     "connected-react-router": "^4.5.0",
     "history": "^4.7.2",
     "hoist-non-react-statics": "^3.0.1",

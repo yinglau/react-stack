@@ -3,6 +3,8 @@ module.exports = {
   //   'src/**/*.{js,jsx}',
   //   '!src/**/*.test.{js,jsx}',
   // ],
+  setupFiles: ['<rootDir>/internals/testing/enzyme-setup.js'],
+  // setupTestFrameworkScriptFile: '<rootDir>/internals/testing/test-bundler.js',
   coverageThreshold: {
     global: {
       statements: 98,
@@ -12,7 +14,8 @@ module.exports = {
     },
   },
   moduleDirectories: ['node_modules', 'src'],
-  // setupTestFrameworkScriptFile: '<rootDir>/internals/testing/test-bundler.js',
-  setupFiles: ['<rootDir>/internals/testing/enzyme-setup.js'],
   snapshotSerializers: ['enzyme-to-json/serializer'],
+  moduleNameMapper: {
+    ".*\\.(css|less|scss)$": "<rootDir>/__mocks__/styleMock.js"
+  }
 };
