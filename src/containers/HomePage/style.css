@@ -1,3 +1,17 @@
+.tabs {
+  margin-bottom: 20px;
+}
+.tabs span {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 4px 6px;
+  color: #333;
+  cursor: pointer;
+}
+.tabs span:hover, .tabs span.actived {
+  background: green;
+  color: #fff;
+}
 .msgBox {
   margin-bottom: 10px;
 }

@@ -13,10 +13,15 @@ import { selectHomeNews } from './selectors'
 import styles from './style.css'
 
 class HomePage extends Component {
+  state = {
+    tabid: 'ask'
+  }
+
   componentDidMount () {
     this.props.getNews({
-      tab: 'job',
-      limit: 6
+      tab: this.state.tabid,
+      limit: 6,
+      page: 1
     })
   }
 
@@ -36,13 +41,33 @@ class HomePage extends Component {
     }
   }
 
+  selectTab (tabid = 'ask') {
+    const that = this
+    this.setState({
+      ...this.state,
+      tabid
+    }, () => {
+      that.props.getNews({
+        tab: that.state.tabid,
+        limit: 6,
+        page: 1
+      })
+    })
+  }
+
   render () {
     const { homeNews } = this.props
 
     return (
       <div style={{ padding: '10px 0' }}>
+        <div className={styles.tabs}>
+          <span className={this.state.tabid === 'ask' && styles.actived} data-tab="ask" onClick={() => this.selectTab('ask')}>ask</span>
+          <span className={this.state.tabid === 'share' && styles.actived} data-tab="share" onClick={() => this.selectTab('share')}>share</span>
+          <span className={this.state.tabid === 'job' && styles.actived} data-tab="job" onClick={() => this.selectTab('job')}>job</span>
+          <span className={this.state.tabid === 'good' && styles.actived} data-tab="good" onClick={() => this.selectTab('good')}>good</span>
+        </div>
         {homeNews.isRequest
-          ? (<span>loading...</span>)
+          ? (<div>loading...</div>)
           : this.renderListBox(homeNews.data)
         }
       </div>

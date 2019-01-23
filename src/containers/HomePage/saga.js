@@ -9,7 +9,7 @@ import {
 function* defaultFlow (action) {
   try {
     console.log('run saga action.type', action.type)
-    const data = yield call(api.getNews, action.opts)
+    const data = yield call(api.getNews, action.payload)
     yield put({ type: GET_NEWS_SUCCESS, data: data.data })
     console.log('run saga action.type', GET_NEWS_SUCCESS)
   } catch (error) {
