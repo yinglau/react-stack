@@ -15,9 +15,11 @@
   - [immutable facebook出品不可变数据处理](http://facebook.github.io/immutable-js/)
   - [reselect](https://github.com/reduxjs/reselect#readme)
 - [webpack 项目打包方案工具](https://webpack.js.org/)
+- 测试套件
+  - [enzyme](https://airbnb.io/enzyme/)
+  - [jest](https://jestjs.io/docs/zh-Hans/getting-started)
 - 代码转化，检测，规范工具
   - [eslint](https://cn.eslint.org/)
-  - [flow](https://flow.org/en/)
   - [babel](https://babel.docschina.org/)
 
 ### npm scripts
@@ -42,9 +44,9 @@ $ npm run lint:fix
 
 **generators**
 
-> generate then `container`, `component` files
+> generate the `container`, `component` files
 
 ```bash
-$ npm run gen
+$ npm run g
 ```
 
