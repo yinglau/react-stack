@@ -4,7 +4,6 @@ const webpack = require('webpack');
 const basecfg = require('./webpack.base.config');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
@@ -102,7 +101,8 @@ module.exports = basecfg({
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'app'
+      title: 'app',
+      template: 'src/index.html'
     }),
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
@@ -111,23 +111,10 @@ module.exports = basecfg({
       chunkFilename: "[id].[chunkhash:8].css"
     }),
     new OptimizeCSSAssetsPlugin({}),
-    new webpack.DefinePlugin({
-      PRODUCTION: JSON.stringify(true),
-    })
   ],
   // Emit a source map for easier debugging
   // See https://webpack.js.org/configuration/devtool/#devtool
   devtool: 'source-map',
-
-  optimization: {
-    minimizer: [
-      new UglifyJsPlugin({
-        cache: false,
-        parallel: true,
-        sourceMap: true // set to true if you want JS source maps
-      }),
-    ]
-  },
 
   performance: {
     hints: false,
