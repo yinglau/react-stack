@@ -2,3 +2,4 @@
 /build
 /coverage
 stats.json
+.DS_Store
