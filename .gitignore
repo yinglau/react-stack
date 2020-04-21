@@ -3,3 +3,4 @@
 /coverage
 stats.json
 .DS_Store
+package-lock.json
