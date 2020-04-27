@@ -60,6 +60,7 @@ class HomePage extends Component {
 
     return (
       <div style={{ padding: '10px 0' }}>
+        <div s className={styles.test}></div>
         <div className={styles.tabs}>
           <span className={this.state.tabid === 'ask' && styles.actived} data-tab="ask" onClick={() => this.selectTab('ask')}>ask</span>
           <span className={this.state.tabid === 'share' && styles.actived} data-tab="share" onClick={() => this.selectTab('share')}>share</span>

@@ -6,6 +6,7 @@ const basecfg = require('./webpack.base.config');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = basecfg({
   mode: 'production',
@@ -42,6 +43,9 @@ module.exports = basecfg({
               modules: true, // 开启css模块化
               localIdentName: '[local]__[hash:base64:8]',
             }
+          },
+          {
+            loader: 'postcss-loader'
           }
         ]
       },
@@ -73,28 +77,32 @@ module.exports = basecfg({
               outputPath: 'images'
             },
           },
-          {
-            loader: 'image-webpack-loader',
-            options: {
-              mozjpeg: {
-                enabled: false,
-                // NOTE: mozjpeg is disabled as it causes errors in some Linux environments
-                // Try enabling it in your environment by switching the config to:
-                // enabled: true,
-                // progressive: true,
-              },
-              gifsicle: {
-                interlaced: false,
-              },
-              optipng: {
-                optimizationLevel: 7,
-              },
-              pngquant: {
-                quality: '65-90',
-                speed: 4,
-              },
-            },
-          },
+          // {
+          //   loader: 'image-webpack-loader',
+          //   options: {
+          //     disable: false,
+          //     mozjpeg: {
+          //       // enabled: false,
+          //       // NOTE: mozjpeg is disabled as it causes errors in some Linux environments
+          //       // Try enabling it in your environment by switching the config to:
+          //       enabled: true,
+          //       progressive: true,
+          //       quality: 65,
+          //       // progressive: true,
+          //     },
+          //     gifsicle: {
+          //       // interlaced: false,
+          //       enabled: false,
+          //     },
+          //     optipng: {
+          //       optimizationLevel: 7,
+          //     },
+          //     pngquant: {
+          //       quality: '65-90',
+          //       speed: 4,
+          //     },
+          //   },
+          // },
         ],
       },
     ]
@@ -111,6 +119,7 @@ module.exports = basecfg({
       chunkFilename: "[id].[chunkhash:8].css"
     }),
     new OptimizeCSSAssetsPlugin({}),
+    new BundleAnalyzerPlugin(),
   ],
   // Emit a source map for easier debugging
   // See https://webpack.js.org/configuration/devtool/#devtool
